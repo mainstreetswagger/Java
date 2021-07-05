@@ -17,7 +17,8 @@ public class Main {
         int b;
         int res = 0;
 
-        if(!Arrays.asList(roman.getNums()).contains(params[0])){
+
+        if(!roman.numbers.containsKey(params[0])){//if not roman
             a=Integer.parseInt(params[0]);
             b=Integer.parseInt(params[2]);
             switch (params[1]){
@@ -45,9 +46,9 @@ public class Main {
             }
             System.out.println(res);
         }
-        else{
-            a=roman.symbolToInt(params[0]);
-            b=roman.symbolToInt(params[2]);
+        else{//if roman style
+            a=roman.numbers.get(params[0]);
+            b=roman.numbers.get(params[2]);
             switch (params[1]){
                 case "+":
                     res=a+b;
